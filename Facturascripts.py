@@ -9,7 +9,6 @@ class Facturascripts:
 
 
     def enviar_mensaje(self, mensaje):
-        print (self.url)
         response = requests.post(
             self.url,
             headers = {
@@ -22,9 +21,6 @@ class Facturascripts:
         ).json()
         
         responseId = response.get('id')
-        print('peru')
-        print (responseId)
-        print('peru2')
         resp = requests.get(
             self.url + '/' + responseId,
             headers={
