@@ -34,13 +34,13 @@ class Comments:
         return video_comments
 
 
-    def replyComments(self,youtube):
+    def replyComments(self,youtube, response_message):
         request = youtube.comments().insert(
             part="snippet",
             body={
                 "snippet": {
                     "parentId": self.id,
-                    "textOriginal": self.text
+                    "textOriginal": response_message
                 }
             }
         )

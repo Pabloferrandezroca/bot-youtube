@@ -41,14 +41,15 @@ for comments_json in comments_list:
     commentIds.append(commentId)
     commentTexts.append(commentText)
 
-facturascripts = Facturascripts()
-facturascripts.enviar_mensaje("Hola, buenas tardes, ¿cómo estás?")
+
 
 for i in range(len(commentIds)):
     for j in range(len(commentIds[i])): 
         parent_id = commentIds[i][j] 
         text = commentTexts[i][j] 
 
+        facturascripts = Facturascripts()
+        response_message = facturascripts.send_message(text)
         # Crear un comentario y responder
         comment = Comments(parent_id, text)
-        comment.replyComments(youtube)
+        comment.replyComments(youtube, response_message)
